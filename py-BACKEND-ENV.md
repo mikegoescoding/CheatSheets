@@ -6,15 +6,15 @@
 pipenv install flask flask-sqlalchemy flask-cors flask-bcrypt flask-heroku gunicorn psycopg2-binary flask-marshmallow marshmallow-sqlalchemy
 ```
 
-> _-> flask
-> _-> flask-sqlalchemy
-> _-> flask-cors
-> _-> flask-bcrypt
-> _-> flask-heroku
-> _-> gunicorn
-> _-> psycopg2-binary
-> _-> flask-marshmallow
-> \*-> marshmallow-sqlalchemy
+> - flask
+> - flask-sqlalchemy
+> - flask-cors
+> - flask-bcrypt
+> - flask-heroku
+> - gunicorn
+> - psycopg2-binary
+> - flask-marshmallow
+> - marshmallow-sqlalchemy
 
 ---
 
