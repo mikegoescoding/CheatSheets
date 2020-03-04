@@ -2,11 +2,8 @@
 
 ## Install dependencies
 
-terminal:
-
-```
-pipenv install flask flask-sqlalchemy flask-cors flask-bcrypt flask-heroku gunicorn psycopg2-binary flask-marshmallow marshmallow-sqlalchemy
-```
+terminal cmd:
+`pipenv install flask flask-sqlalchemy flask-cors flask-bcrypt flask-heroku gunicorn psycopg2-binary flask-marshmallow marshmallow-sqlalchemy`
 
 dependencies used:
 
@@ -24,7 +21,7 @@ dependencies used:
 
 ## Enter the virtual env shell
 
-terminal:
+terminal cmd:
 `pipenv shell`
 
 ---
@@ -118,28 +115,17 @@ posts_schema = PostSchema(many=True)
 **!must still be in shell!**
 
 - enter python repl:
+  terminal cmd: `python`
 
-```python
-python
-```
+* import db
+  terminal cmd: `from app import db`
 
-- import db
-
-```python
-from app import db
-```
-
-- create db file
-
-```python
-db.create_all()
-```
+* create db file
+  terminal cmd: `db.create_all()`
 
 ---
 
 ## Build the End Points
-
-terminal:
 
 ```python
 # create a new user POST method, below
