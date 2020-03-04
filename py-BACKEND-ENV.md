@@ -10,9 +10,8 @@ pipenv install flask flask-sqlalchemy flask-cors flask-bcrypt flask-heroku gunic
 
 dependencies used:
 
-> -- flask
-> -- flask-sqlalchemy
->
+> - flask
+> - flask-sqlalchemy
 > - flask-cors
 > - flask-bcrypt
 > - flask-heroku
@@ -118,13 +117,13 @@ posts_schema = PostSchema(many=True)
 
 **!must still be in shell!**
 
-1. enter python repl:
+1. enter python repl:  
    terminal cmd: `python`
 
-2. import db
+2. import db  
    terminal cmd: `from app import db`
 
-3. create db file
+3. create db file  
    terminal cmd: `db.create_all()`
 
 ---
