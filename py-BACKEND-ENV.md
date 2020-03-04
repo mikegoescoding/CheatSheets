@@ -2,9 +2,13 @@
 
 ## Install dependencies
 
+terminal:
+
 ```
 pipenv install flask flask-sqlalchemy flask-cors flask-bcrypt flask-heroku gunicorn psycopg2-binary flask-marshmallow marshmallow-sqlalchemy
 ```
+
+dependencies used:
 
 > - flask
 > - flask-sqlalchemy
@@ -26,13 +30,13 @@ pipenv install flask flask-sqlalchemy flask-cors flask-bcrypt flask-heroku gunic
 
 ## Import libraries in app.py
 
--> from flask import Flask, request, jsonify
--> from flask_sqlalchemy import SQLAlchemy
--> from flask_cors import CORS
--> from flask_heroku import Heroku
--> from flask_marshmallow import Marshmallow
--> from flask_bcrypt import Bcrypt
--> import os
+> - from flask import Flask, request, jsonify
+> - from flask_sqlalchemy import SQLAlchemy
+> - from flask_cors import CORS
+> - from flask_heroku import Heroku
+> - from flask_marshmallow import Marshmallow
+> - from flask_bcrypt import Bcrypt
+> - import os
 
 ---
 
