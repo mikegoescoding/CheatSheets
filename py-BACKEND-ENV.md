@@ -4,12 +4,15 @@
 
 terminal cmd:
 
-`pipenv install flask flask-sqlalchemy flask-cors flask-bcrypt flask-heroku gunicorn psycopg2-binary flask-marshmallow marshmallow-sqlalchemy`
+```python
+pipenv install flask flask-sqlalchemy flask-cors flask-bcrypt flask-heroku gunicorn psycopg2-binary flask-marshmallow marshmallow-sqlalchemy
+```
 
 dependencies used:
 
-> - flask
-> - flask-sqlalchemy
+> -- flask
+> -- flask-sqlalchemy
+>
 > - flask-cors
 > - flask-bcrypt
 > - flask-heroku
@@ -115,17 +118,14 @@ posts_schema = PostSchema(many=True)
 
 **!must still be in shell!**
 
-- enter python repl:
+1. enter python repl:
+   terminal cmd: `python`
 
-terminal cmd: `python`
+2. import db
+   terminal cmd: `from app import db`
 
-- import db
-
-terminal cmd: `from app import db`
-
-- create db file
-
-terminal cmd: `db.create_all()`
+3. create db file
+   terminal cmd: `db.create_all()`
 
 ---
 
