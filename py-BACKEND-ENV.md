@@ -1,5 +1,7 @@
 # SETUP VIRTUAL ENVIRONMENT:
 
+(examples for user creation and login db)
+
 ## Install dependencies
 
 terminal cmd:
@@ -120,10 +122,10 @@ posts_schema = PostSchema(many=True)
 1. enter python repl:  
    terminal cmd: `python`
 
-2. import db  
+2. import db:  
    terminal cmd: `from app import db`
 
-3. create db file  
+3. create db file:  
    terminal cmd: `db.create_all()`
 
 ---
