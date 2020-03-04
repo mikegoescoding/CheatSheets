@@ -1,6 +1,6 @@
 #SETUP VIRTUAL ENVIRONMENT:
 
-##1. Install dependencies
+## Install dependencies
 
 ```
 pipenv install flask flask-sqlalchemy flask-cors flask-bcrypt flask-heroku gunicorn psycopg2-binary flask-marshmallow marshmallow-sqlalchemy
@@ -18,13 +18,13 @@ pipenv install flask flask-sqlalchemy flask-cors flask-bcrypt flask-heroku gunic
 
 ---
 
-##2. Enter the virtual env shell
+## Enter the virtual env shell
 
 `pipenv shell`
 
 ---
 
-##3. Import libraries in app.py
+## Import libraries in app.py
 
 -> from flask import Flask, request, jsonify
 -> from flask_sqlalchemy import SQLAlchemy
@@ -36,7 +36,7 @@ pipenv install flask flask-sqlalchemy flask-cors flask-bcrypt flask-heroku gunic
 
 ---
 
-##4. Initialize the app
+## Initialize the app
 
 ```python
 app = Flask(__name__)
