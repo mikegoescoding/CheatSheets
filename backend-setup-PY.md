@@ -192,13 +192,13 @@ def verify_user():
     return jsonify("User Verified")
 
 
-# get all posts by a specific user
+# get all posts by a specific user by user_id
 @app.route("/users/posts/by_user_id/<user_id>", methods=["GET"])
 def get_all_posts_by_user(user_id):
     all_posts = db.session.query(Post).filter(Post.userID == user_id).all()
     return jsonify(posts_schema.dump(all_posts))
 
-#
+# get all posts by a specific user by username
 @app.route("/users/posts/by_username/<username>", methods=["GET"])
 def get_all_posts_by_user_with_username(username):
     user_id = db.session.query(User.id).filter(User.username == username).first()[0]
