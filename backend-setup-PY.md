@@ -2,7 +2,7 @@
 
 (examples for user creation and login db)
 
-## Install dependencies
+## Install dependencies:
 
 terminal cmd:
 
@@ -24,14 +24,14 @@ dependencies used:
 
 ---
 
-## Enter the virtual env shell
+## Enter the virtual env shell:
 
 terminal cmd:
 `pipenv shell`
 
 ---
 
-## Import libraries in app.py
+## Import libraries in app.py:
 
 ```python
 from flask import Flask, request, jsonify
@@ -45,7 +45,7 @@ import os
 
 ---
 
-## Initialize the app
+## Initialize the app:
 
 ```python
 app = Flask(__name__)
@@ -67,7 +67,7 @@ if __name__ == "__main__":
 
 ---
 
-## Setup Class tables
+## Setup Class tables:
 
 ```python
 # Example db table for User class, below (for user login info)
@@ -115,7 +115,7 @@ posts_schema = PostSchema(many=True)
 
 ---
 
-## Create Sqlite DB
+## Create Sqlite DB:
 
 **!must still be in shell!**
 
@@ -130,116 +130,9 @@ posts_schema = PostSchema(many=True)
 
 ---
 
-## Build the End Points
+## Build the End Points:
 
-```python
-# create a new user
-@app.route("/users/post", methods=["POST"])
-def create_user():
-    if request.content_type != "application/json":
-        return jsonify("Error: Data must be sent as JSON.")
-    post_data = request.get_json()
-    username = post_data.get("username")
-    password = post_data.get("password")
-    email = post_data.get("email")
-
-    encrypted_password = bcrypt.generate_password_hash(password).decode("utf8")
-
-    record = User(username, encrypted_password, email)
-    db.session.add(record)
-    db.session.commit()
-
-    return jsonify("User Created.")
-
-# get all users
-@app.route("/users/get", methods=["GET"])
-def get_all_users():
-    all_users = db.session.query(User).all()
-    return jsonify(users_schema.dump(all_users))
-
-# get user by ID
-@app.route("/users/get/by_id/<id>", methods=["GET"])
-def get_user_by_id(id):
-    user = db.session.query(User).filter(User.id == id).first()
-    return jsonify(user_schema.dump(user))
-
-# get user by username
-@app.route("/users/get/by_username/<username>", methods=["GET"])
-def get_user_by_username(username):
-    user = db.session.query(User).filter(User.username == username).first()
-    return jsonify(user_schema.dump(user))
-
-# user login credential verification
-@app.route("/users/verification", methods=["POST"])
-def verify_user():
-    if request.content_type != "application/json":
-        return jsonify("Error: Data must be sent as JSON.")
-
-    post_data = request.get_json()
-    username = post_data.get("username")
-    password = post_data.get("password")
-
-    encrypted_password = db.session.query(User.password).filter(User.username == username).first()
-
-    if encrypted_password is None:
-        return jsonify("User NOT verified: Username")
-
-    password_check = bcrypt.check_password_hash(encrypted_password[0], password)
-
-    if password_check == False:
-        return jsonify("User NOT verified: Password")
-
-    return jsonify("User Verified")
-
-
-# get all posts by a specific user by user_id
-@app.route("/users/posts/by_user_id/<user_id>", methods=["GET"])
-def get_all_posts_by_user(user_id):
-    all_posts = db.session.query(Post).filter(Post.userID == user_id).all()
-    return jsonify(posts_schema.dump(all_posts))
-
-# get all posts by a specific user by username
-@app.route("/users/posts/by_username/<username>", methods=["GET"])
-def get_all_posts_by_user_with_username(username):
-    user_id = db.session.query(User.id).filter(User.username == username).first()[0]
-
-    all_posts = db.session.query(Post).filter(Post.userID == user_id).all()
-    return jsonify(posts_schema.dump(all_posts))
-
-
-# post a new message
-@app.route("/posts/post_msg", methods=["POST"])
-def create_post():
-    if request.content_type != "application/json":
-        return jsonify("Error: Data must be sent as JSON.")
-
-    post_data = request.get_json()
-    content = post_data.get("content")
-    color = post_data.get("color")
-    userID = post_data.get("userID")
-
-    record = Post(content, color, userID)
-    db.session.add(record)
-    db.session.commit()
-
-    return jsonify("Post Created")
-
-# get all messages
-@app.route("/posts/get_msg", methods=["GET"])
-def get_all_posts():
-    all_posts = db.session.query(Post).all()
-    return jsonify(posts_schema.dump(all_posts))
-
-# get single message by message id
-@app.route("/posts/get_msg/<id>", methods=["GET"])
-def get_post_by_id(id):
-    post = db.session.query(Post).filter(Post.id == id).first()
-    return jsonify(post_schema.dump(post))
-```
-
----
-
-## Current code
+#### Current code:
 
 ```python
 from flask import Flask, request, jsonify
