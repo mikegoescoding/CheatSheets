@@ -1,6 +1,6 @@
 # SETUP VIRTUAL ENVIRONMENT:
 
-(examples for user creation and login db)
+(examples for user creation / login / posting + receiving messages db)
 
 ## Install dependencies:
 
