@@ -11,7 +11,7 @@
 
 #### "prefix" is where you define whatever you want to call your shortcut key
 
-```
+```javascript
 {
 	"Create a functional react component": {
 		"prefix": "rfc",
